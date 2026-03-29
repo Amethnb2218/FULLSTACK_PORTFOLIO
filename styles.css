@@ -49,3 +49,11 @@ main {
   margin: 0 auto;
   padding: 1.5rem 1rem;
 }
+
+.site-footer {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem;
+  background: #1f2a44;
+  color: #f2f2f2;
+}
