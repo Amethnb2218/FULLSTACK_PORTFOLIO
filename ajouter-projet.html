@@ -20,9 +20,28 @@
     </nav>
 
     <main>
-      <section>
-        <h2>Formulaire</h2>
-        <p>Contenu en cours de construction.</p>
+      <section class="panel">
+        <h2>Ajouter un projet</h2>
+        <p>Renseignez toutes les caractéristiques demandées pour enregistrer un projet.</p>
+
+        <form class="project-form" action="lister-projets.html" method="get">
+          <label for="libelle">Libellé du projet</label>
+          <input id="libelle" name="libelle" type="text" required />
+
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="6" required></textarea>
+
+          <label for="image">URL de l'image</label>
+          <input id="image" name="image" type="url" placeholder="https://..." required />
+
+          <label for="technologies">Technologies utilisées (séparées par des virgules)</label>
+          <input id="technologies" name="technologies" type="text" placeholder="HTML, CSS, Flexbox" required />
+
+          <label for="date-realisation">Date de réalisation</label>
+          <input id="date-realisation" name="date-realisation" type="month" required />
+
+          <button type="submit">Enregistrer le projet</button>
+        </form>
       </section>
     </main>
 
