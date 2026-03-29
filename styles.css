@@ -22,6 +22,12 @@ body {
   color: #1a2435;
 }
 
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .site-header {
   padding: 2.25rem 1rem;
   text-align: center;
@@ -58,6 +64,36 @@ body {
 .site-nav a:focus-visible {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+}
+
+.menu-button {
+  display: none;
+}
+
+.menu-icon {
+  width: 14px;
+  height: 2px;
+  background: currentColor;
+  display: inline-block;
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  width: 14px;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before {
+  top: -5px;
+}
+
+.menu-icon::after {
+  top: 5px;
 }
 
 main {
@@ -220,12 +256,56 @@ h3 {
     padding: 1.6rem 0.9rem;
   }
 
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 0.8rem;
+    right: 0.8rem;
+    z-index: 20;
+    background: var(--ink-900);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  }
+
   .site-nav {
-    justify-content: flex-start;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+    padding: 0.8rem;
+    margin: 0.6rem 0.9rem 0;
+    border-radius: 10px;
+    background: var(--ink-900);
   }
 
   .site-nav a {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
+  }
+
+  .menu-toggle:checked + .site-header + .menu-button + .site-nav {
+    display: flex;
+  }
+
+  .menu-toggle:checked + .site-header + .menu-button .menu-icon {
+    background: transparent;
+  }
+
+  .menu-toggle:checked + .site-header + .menu-button .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle:checked + .site-header + .menu-button .menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
   }
 
   .project-list {
