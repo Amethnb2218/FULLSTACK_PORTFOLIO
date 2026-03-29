@@ -1,6 +1,13 @@
 :root {
-  --brand-900: #1f2a44;
-  --paper: #f8f4ea;
+  --ink-900: #11213b;
+  --ink-700: #1c355d;
+  --ink-500: #2a4a7f;
+  --accent-500: #f2a413;
+  --accent-300: #ffd27a;
+  --paper: #f7f4eb;
+  --card: #ffffff;
+  --danger: #b93535;
+  --line: #d9d7d0;
 }
 
 * {
@@ -9,16 +16,23 @@
 
 body {
   margin: 0;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: "Verdana", "Geneva", sans-serif;
+  line-height: 1.55;
   background: var(--paper);
-  color: #1a1a1a;
+  color: #1a2435;
 }
 
 .site-header {
-  padding: 2rem 1rem;
+  padding: 2.25rem 1rem;
   text-align: center;
-  background: linear-gradient(120deg, #f2b705, #f28f16);
-  color: var(--brand-900);
+  background: radial-gradient(circle at top left, var(--accent-300), var(--accent-500));
+  color: var(--ink-900);
+  border-bottom: 3px solid #e08b00;
+}
+
+.site-header h1 {
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.04rem;
 }
 
 .site-nav {
@@ -26,34 +40,199 @@ body {
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
-  padding: 0.85rem 1rem;
-  background: #1f2a44;
+  padding: 0.85rem 1rem 1rem;
+  background: var(--ink-900);
 }
 
 .site-nav a {
   text-decoration: none;
-  color: #ffffff;
+  color: #f7f7f7;
   font-weight: 700;
   padding: 0.45rem 0.7rem;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
   background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 main {
-  max-width: 980px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 2rem;
+}
+
+h2,
+h3 {
+  color: var(--ink-700);
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 1.1rem;
+  box-shadow: 0 10px 25px rgba(17, 33, 59, 0.07);
+}
+
+.panel > h2,
+.panel > h3 {
+  margin-top: 0;
+}
+
+.panel ul {
+  padding-left: 1.2rem;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.project-card {
+  width: min(100%, 320px);
+  background: #fffefb;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.project-title {
+  color: var(--ink-700);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.project-card button {
+  border: none;
+  border-radius: 8px;
+  background: var(--danger);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+.project-card button:hover {
+  background: #952b2b;
+}
+
+.project-detail img {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: var(--ink-500);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+}
+
+.back-link:hover {
+  background: var(--ink-700);
+}
+
+.project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.project-form label {
+  font-weight: 700;
+  color: var(--ink-700);
+}
+
+.project-form input,
+.project-form textarea {
+  width: 100%;
+  border: 1px solid #bfc5d1;
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  background: #fff;
+}
+
+.project-form input[type="month"] {
+  max-width: 210px;
+}
+
+.project-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.project-form button {
+  margin-top: 0.5rem;
+  max-width: 250px;
+  border: none;
+  border-radius: 10px;
+  background: var(--ink-700);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.7rem 0.95rem;
+  cursor: pointer;
+}
+
+.project-form button:hover {
+  background: var(--ink-900);
+}
+
+.panel ul li + li {
+  margin-top: 0.35rem;
 }
 
 .site-footer {
   margin-top: 2rem;
   text-align: center;
   padding: 1rem;
-  background: #1f2a44;
+  background: var(--ink-900);
   color: #f2f2f2;
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    padding: 1.6rem 0.9rem;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+  }
+
+  .site-nav a {
+    font-size: 0.92rem;
+  }
+
+  .project-list {
+    flex-direction: column;
+  }
+
+  .project-card {
+    width: 100%;
+  }
 }
