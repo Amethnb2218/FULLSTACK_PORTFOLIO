@@ -28,25 +28,25 @@
     <main>
       <section class="panel">
         <h2>Ajouter un projet</h2>
-        <p>Renseignez toutes les caractéristiques demandées pour enregistrer un projet.</p>
+        <p>Renseignez toutes les caractéristiques du nouveau projet à ajouter au portfolio de Mouhamed Sall.</p>
 
         <form class="project-form" action="lister-projets.html" method="get">
           <label for="libelle">Libellé du projet</label>
-          <input id="libelle" name="libelle" type="text" required />
+          <input id="libelle" name="libelle" type="text" placeholder="Ex: Plateforme DevOps CI/CD" required />
 
           <label for="description">Description</label>
-          <textarea id="description" name="description" rows="6" required></textarea>
+          <textarea id="description" name="description" rows="6" placeholder="Décrivez le contexte, les objectifs, les fonctionnalités et les résultats du projet." required></textarea>
 
           <label for="image">URL de l'image</label>
-          <input id="image" name="image" type="url" placeholder="https://..." required />
+          <input id="image" name="image" type="url" placeholder="https://image-du-projet.com/capture.png" required />
 
           <label for="technologies">Technologies utilisées (séparées par des virgules)</label>
-          <input id="technologies" name="technologies" type="text" placeholder="HTML, CSS, Flexbox" required />
+          <input id="technologies" name="technologies" type="text" placeholder="React, Node.js, PostgreSQL, Docker" required />
 
           <label for="date-realisation">Date de réalisation</label>
           <input id="date-realisation" name="date-realisation" type="month" required />
 
-          <button type="submit">Enregistrer le projet</button>
+          <button type="submit">Enregistrer le projet dans le portfolio</button>
         </form>
       </section>
     </main>
